@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { AlarmRepository } from 'src/alarms/application/ports/alarm.repository';
+import { CreateAlarmRepository } from 'src/alarms/application/ports/create-alarm.repository';
 import { AlarmEntity } from '../entities/alarm.entity';
 import { Repository } from 'typeorm';
 import { AlarmMapper } from '../mappers/alarm.mappers';
@@ -7,16 +7,16 @@ import { Alarm } from '../../../../domain/alarm';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class OrmAlarmRepository implements AlarmRepository {
+export class OrmCreateAlarmRepository implements CreateAlarmRepository {
   constructor(
     @InjectRepository(AlarmEntity)
     private readonly alarmRepository: Repository<AlarmEntity>,
   ) {}
 
-  async findAll(): Promise<Alarm[]> {
-    const entities = await this.alarmRepository.find();
-    return entities.map((entity) => AlarmMapper.toDomain(entity));
-  }
+  // async findAll(): Promise<Alarm[]> {
+  //   const entities = await this.alarmRepository.find();
+  //   return entities.map((entity) => AlarmMapper.toDomain(entity));
+  // }
 
   async save(alarm: Alarm): Promise<Alarm> {
     const persistenceModel = AlarmMapper.toPersistence(alarm);

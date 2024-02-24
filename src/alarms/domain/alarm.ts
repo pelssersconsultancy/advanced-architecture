@@ -3,7 +3,7 @@ import { AlarmSeverity } from './value-objects/alarm-severity';
 
 export class Alarm {
   public triggeredAt: Date;
-  public isAcknowledged: boolean;
+  public isAcknowledged = false;
   public items = new Array<AlarmItem>();
   public name: string;
   public severity: AlarmSeverity;
