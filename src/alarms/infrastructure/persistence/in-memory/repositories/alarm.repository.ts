@@ -11,8 +11,8 @@ export class InMemoryAlarmRepository implements AlarmRepository {
 
   constructor() {
     // pre-populate with some data
-    this.alarms.set('1', { id: '1', name: 'Alarm 1', severity: 'medium' });
-    this.alarms.set('2', { id: '2', name: 'Alarm 2', severity: 'low' });
+    // this.alarms.set('1', { id: '1', name: 'Alarm 1', severity: 'medium' });
+    // this.alarms.set('2', { id: '2', name: 'Alarm 2', severity: 'low' });
   }
 
   async findAll(): Promise<Alarm[]> {
