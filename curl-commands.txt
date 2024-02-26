@@ -1,1 +1,15 @@
-curl -H 'Content-Type: application/json' -d '{"name": "Test Alarm", "severity": "high"}' -X POST http://localhost:3000/alarms 
+curl -H 'Content-Type: application/json' -d '{
+    "name": "Alarm 1",
+    "severity": "HIGH",
+    "triggeredAt": "2021-01-01T00:00:00.000Z",
+    "items": [
+        {
+            "name": "Item 1",
+            "type": "TYPE_1"
+        },
+        {
+            "name": "Item 2",
+            "type": "TYPE_2"
+        }
+    ]
+}' -X POST http://localhost:3000/alarms 

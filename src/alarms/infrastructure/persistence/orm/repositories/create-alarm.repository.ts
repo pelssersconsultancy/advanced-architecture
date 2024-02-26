@@ -13,11 +13,6 @@ export class OrmCreateAlarmRepository implements CreateAlarmRepository {
     private readonly alarmRepository: Repository<AlarmEntity>,
   ) {}
 
-  // async findAll(): Promise<Alarm[]> {
-  //   const entities = await this.alarmRepository.find();
-  //   return entities.map((entity) => AlarmMapper.toDomain(entity));
-  // }
-
   async save(alarm: Alarm): Promise<Alarm> {
     const persistenceModel = AlarmMapper.toPersistence(alarm);
     const newEntity = await this.alarmRepository.save(persistenceModel);
